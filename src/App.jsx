@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Randomizer from './components/Randomizer'
+import Randomizer from "./components/Randomizer"
 
 function App() {
   

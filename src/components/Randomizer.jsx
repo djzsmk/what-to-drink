@@ -5,18 +5,27 @@ function Randomizer() {
     
     const [drink, setDrink] = useState("Click the button");
 
-    const drinks = ["Margarita", "Long Island", "Old Fashioned"];
+    async function fetchRandonDrink () {
+        try {
+            const result = await fetch (
+                "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+            )
+            
+            const data = await result.json ();
+            const drinkResult = data.drinks[0];
 
-    function pickRandomDrink () {
-        const randomIndex = Math.floor(Math.random () * drinks.length)
-        setDrink(drinks[randomIndex])
-    }
+            setDrink(drinkResult)
+        }catch (err) {
+                console.error(err)
+        }
+    };
+    
 
     
     return (
         <>
-            <h2> {drink} </h2>
-            <Button onClick={pickRandomDrink} />
+            {drink && <h2> {drink.strDrink} </h2>}
+            <Button onClick={fetchRandonDrink} />
         </>
     );
 };

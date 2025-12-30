@@ -44,6 +44,7 @@ function Randomizer() {
             
             
             setDrink(drinkResult);
+
             
         }catch (err) {
             console.error(err);
@@ -63,6 +64,18 @@ function Randomizer() {
             localStorage.setItem("favorites", JSON.stringify(newFavorites))
         }
     }
+    
+    const ingredients = [];
+
+    if (drink) {
+        for(let i=1; i<15; i++) {
+            const ingredient = drink[`strIngredient${i}`];
+            const measure = drink[`strMeasure${i}`];
+            if (ingredient) {
+                ingredients.push(`${measure ? measure : ""} ${ingredient}`.trim())
+            }
+        }
+    }
 
     return (
         <>
@@ -70,6 +83,19 @@ function Randomizer() {
             {error && <p style={{color: "red"}}>{error}</p>}
             {!loading && drink && <h2> {drink.strDrink} </h2>}
             <LiquorSelector selectedLiquor={liquor} onChange={setLiquor} />
+            {drink && (
+                <>
+                    <img src={drink.strDrinkThumb} alt ={drink.strDrink} style ={{width: "200px"}} />
+                    <h3>Ingredients</h3>
+                    <ul>
+                        {ingredients.map((item,index) => (
+                            <li key ={index}>{item}</li>
+                        ))}
+                    </ul>
+                    <h3> Instructions</h3>
+                    <p>{drink.strInstructions}</p>
+                </>
+            )}
             <Button onClick={fetchRandonDrink} disabled = {loading} />
             <SaveButton drink={drink} onSave={addFavorite} />
             

@@ -75,10 +75,12 @@ function Randomizer() {
             {!loading && drink && <h2> {drink.strDrink} </h2>}
             <LiquorSelector selectedLiquor={liquor} onChange={setLiquor} />
             {drink && (
-                <>
+                <div style = {{display: "flex", flexDirection: "column", gap: "10px"}}>
                     <img src={drink.strDrinkThumb} alt ={drink.strDrink} style ={{width: "200px"}} />
                     <IngredientsList drink= {drink} />
-                </>
+                    <h3>Instructions</h3>
+                    <p> {drink.strInstructions}</p>
+                </div>
             )}
             <Button onClick={fetchRandonDrink} disabled = {loading} />
             <SaveButton drink={drink} onSave={addFavorite} />

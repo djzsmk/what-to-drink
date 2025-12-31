@@ -103,7 +103,11 @@ function Randomizer() {
             <h3> Favorites</h3>
             <ul>
                 {favorites.map(fav => (
-                    <li key={fav.idDrink}>{fav.strDrink}</li>
+                    <li 
+                    key={fav.idDrink}
+                    style={{ cursor: "pointer"}}
+                    onClick={() => setDrink(fav)}>
+                        {fav.strDrink}</li>
                  ))}
             </ul>
         </>

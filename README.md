@@ -12,8 +12,8 @@ A React + Vite project that lets you discover cocktails at random, filter by liq
 
 - Fetch a random cocktail from [TheCocktailDB API](https://www.thecocktaildb.com/api.php)
 - Filter drinks by liquor type (e.g., Vodka, Rum, Tequila)
-- Display drink details including ingredients and instructions
-- Save favorite drinks locally using `localStorage`
+- Display drink details, including ingredients and instructions
+- Save favorite drinks locally using `localStorage.`
 - Simple, reusable React components
 
 ---

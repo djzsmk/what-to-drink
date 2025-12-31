@@ -7,7 +7,7 @@ function App() {
   
   return (
     <>
-      <h1>shows whats on the screen</h1>
+      <h1>What to drink?</h1>
       < Randomizer />
     </>
   )

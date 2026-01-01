@@ -29,4 +29,12 @@ A React + Vite project that lets you discover cocktails at random, filter by liq
 ---
 
 ## Project Structure
-
+src/
+├── components/
+│ ├── Randomizer.jsx # Main cocktail randomizer logic
+│ ├── LiquorSelector.jsx # Dropdown to filter drinks by liquor
+│ ├── Button.jsx # Generic button component
+│ └── SaveButton.jsx # Save a drink to favorites
+├── App.jsx # Combines components and renders the app
+├── main.jsx # Entry point
+└── index.css # Basic styling
